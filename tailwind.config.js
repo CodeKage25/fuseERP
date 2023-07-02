@@ -28,7 +28,12 @@ export default {
       },
       colors: {
         'gray': '#F1F5F9',
+        'gray-500': '#64748B',
+        'gray-600': '#475569',
         'gray-700': '#334155',
+        'gray-900': '#0F172A',
+        'primary-600': '#2563EB',
+        'success-600': '#059669'
       },
       fontFamily: {
         'mullish': 'Mulish'

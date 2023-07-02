@@ -5,25 +5,25 @@ import {ReactComponent as Notification} from '../assets/icons/Notification.svg'
 function TopNav() {
     return (
         <div className="flex flex-wrap justify-between bg-white h-full col-start-3 col-end-9 pr-[40px] pl-[40px] items-center border-b border-gray">
-            <div className="not-italic color-gray-700 font-semibold leading-8 text-2xl font-mullish">
+            <div className="not-italic text-gray-700 font-semibold leading-8 text-2xl font-mullish items-center">
                 Invoice
             </div>
             <div>
-                <div className="flex">
+                <div className="flex items-center gap-[16px]">
                     <div className="relative">
                         <span>
                         <Notification className="self-align" />
-                            <Noise className="absolute bottom-6 left-4" />
+                            <Noise className="absolute bottom-5 left-3" />
                         </span>
                     </div>
                     <div className="">
                     <PayStack />
                     </div>
-                    <div>
+                    <div className="text-gray-500 font-mullish">
                             Kolade
                         </div>
                         <div>
-                            <ArrowDown />
+                            <ArrowDown className="text-gray-500" />
                         </div>
                 </div>
             </div>

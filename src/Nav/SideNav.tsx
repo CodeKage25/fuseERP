@@ -9,7 +9,7 @@ import {ReactComponent as Accounting} from '../assets/icons/Accounting.svg'
 import {ReactComponent as Inventory} from '../assets/icons/Inventory.svg'
 function SideNav() {
     return (
-        <div className="flex  flex-col h-full row-span-full col-span-2 flex-wrap justify-around pl-8 border-r border-gray">
+        <div className="flex bg-white flex-col h-full row-span-full col-span-2 flex-wrap justify-around pl-8 border-r border-gray">
             <div className="text-left">
                 <span className="text-[#2563EB]">
                     FUSE
