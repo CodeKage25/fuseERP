@@ -32,6 +32,7 @@ export default {
         'gray-600': '#475569',
         'gray-700': '#334155',
         'gray-900': '#0F172A',
+        'primary-50': '#EFF6FF',
         'primary-600': '#2563EB',
         'success-600': '#059669'
       },
@@ -50,6 +51,9 @@ export default {
         extrabold: '800',
         'extra-bold': '800',
         black: '900',
+      },
+      boxShadow: {
+        '3xl': '0px 4px 6px 0px rgba(37, 99, 235, 0.10)',
       }
     },
   },
