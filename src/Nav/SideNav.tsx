@@ -1,6 +1,15 @@
+import {ReactComponent as Dashboard} from '../assets/icons/Dashboard.svg'
+import {ReactComponent as Invoice} from '../assets/icons/Invoice.svg'
+import {ReactComponent as ArrowDown} from '../assets/icons/ArrowDown.svg'
+import {ReactComponent as Resource} from '../assets/icons/Resource.svg'
+import {ReactComponent as Project} from '../assets/icons/Project.svg'
+import {ReactComponent as Relation} from '../assets/icons/Relation.svg'
+import {ReactComponent as Settings} from '../assets/icons/Settings.svg'
+import {ReactComponent as Accounting} from '../assets/icons/Accounting.svg'
+import {ReactComponent as Inventory} from '../assets/icons/Inventory.svg'
 function SideNav() {
     return (
-        <div className="flex  flex-col h-full row-span-full col-span-2 flex-wrap justify-around pl-8">
+        <div className="flex  flex-col h-full row-span-full col-span-2 flex-wrap justify-around pl-8 border-r border-gray">
             <div className="text-left">
                 <span className="text-[#2563EB]">
                     FUSE
@@ -9,46 +18,46 @@ function SideNav() {
             </div>
             <div className=" flex flex-col flex-wrap h-3/6 justify-between">
                 <div className="flex content-center align-center">
-                    <div><img src='src/assets/icons/Dashboard.svg' /></div>
+                    <div><Dashboard /></div>
                     <div className="pl-4">Dashboard</div>
                 </div>
                 <div className="flex flex-wrap justify-between">
                     <div className="flex flex-wrap ">
-                    <div> <img  src='src/assets/icons/Invoice.svg' /></div>
+                    <div> <Invoice /></div>
                     <div className="pl-4">Invoice</div>
                     </div>
                     <div className="self-center pr-4">
-                        <img src="src/assets/icons/ArrowDown.svg" />
+                        <ArrowDown />
                     </div>
                 </div>
                 <div className="flex flex-wrap justify-between">
                     <div className="flex flex-wrap">
-                    <div className=""> <img src='src/assets/icons/Resource.svg' /></div>
+                    <div className=""> <Resource /></div>
                 <div className="pl-4"> Human Rosource</div>
                     </div>
                     <div className="self-center pr-4">
-                    <img src="src/assets/icons/ArrowDown.svg" />
+                    <ArrowDown/>
                     </div>
                 </div>
                 <div className="flex">
-                <div> <img src='src/assets/icons/Project.svg' /></div>
+                <div> <Project /></div>
                 <div className="pl-4">Project Management</div>
                 </div>
                 <div className="flex">
-                <div> <img src='src/assets/icons/Inventory.svg' /></div>
+                <div> <Inventory /></div>
                 <div className="pl-4">Inventory</div>
                 </div>
                 <div className="flex">
-                <div> <img src='src/assets/icons/Accounting.svg' /></div>
+                <div> <Accounting/></div>
                 <div className="pl-4">Accounting</div>
                 </div>
                 <div className="flex">
-                <div><img src='src/assets/icons/Relation.svg' /></div>
+                <div><Relation /></div>
                 <div className="pl-4">Customer Relations</div>
                 </div>
             </div>
             <div className="flex">
-                    <div><img src='src/assets/icons/Settings.svg' />
+                    <div><Settings />
                     </div>
                 <div className="pl-4">Settings</div>
             </div>

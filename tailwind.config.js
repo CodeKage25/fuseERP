@@ -25,6 +25,26 @@ export default {
         '11': '11',
         '12': '12',
         '13': '13',
+      },
+      colors: {
+        'gray': '#F1F5F9',
+        'gray-700': '#334155',
+      },
+      fontFamily: {
+        'mullish': 'Mulish'
+      },
+      fontWeight: {
+        thin: '100',
+        hairline: '100',
+        extralight: '200',
+        light: '300',
+        normal: '400',
+        medium: '500',
+        semibold: '600',
+        bold: '700',
+        extrabold: '800',
+        'extra-bold': '800',
+        black: '900',
       }
     },
   },
