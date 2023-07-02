@@ -1,9 +1,9 @@
 import './App.css'
-import SideNav from './Nav/SideNav'
-import RightNav from './Nav/RightNav';
-import TopNav from './Nav/TopNav';
-import BottomNav from './Nav/BottomNav';
-import MainBody from './Main/MainBody';
+import SideNav from './Nav/SideNav.tsx'
+import RightNav from './Nav/RightNav.tsx';
+import TopNav from './Nav/TopNav.tsx';
+import BottomNav from './Nav/BottomNav.tsx';
+import MainBody from './Main/MainBody.tsx';
 
 function App() {
 
