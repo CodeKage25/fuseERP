@@ -32,9 +32,8 @@ function Table() {
           },
     
     ], [])
+    const data = useMemo(() => Data(), []);
     return (
-
-        const data = useMemo(() => data(), []);
         <div>
 
         </div>

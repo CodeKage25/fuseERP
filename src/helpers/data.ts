@@ -1,6 +1,6 @@
 import { dataType } from './types';
 
-export const data: dataType[] = [
+export const Data: dataType[] = [
     {
     purchase_order: "PO-2000026",
     date_created: "Dec. 14, 2022 8:32 AM",
