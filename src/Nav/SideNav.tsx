@@ -7,7 +7,11 @@ import {ReactComponent as Relation} from '../assets/icons/Relation.svg'
 import {ReactComponent as Settings} from '../assets/icons/Settings.svg'
 import {ReactComponent as Accounting} from '../assets/icons/Accounting.svg'
 import {ReactComponent as Inventory} from '../assets/icons/Inventory.svg'
+import {ReactComponent as Point} from '../assets/icons/Point.svg'
+import {ReactComponent as SecondPoint} from '../assets/icons/SecondPoint.svg'
+import React, {useState} from 'react'
 function SideNav() {
+    const [isOpen, setIsOpen] = useState(false);
     return (
         <div className="flex bg-white flex-col h-full row-span-full col-span-2 flex-wrap justify-around pl-8 border-r border-gray">
             <div className="text-left">
@@ -24,12 +28,35 @@ function SideNav() {
                 <div className="flex flex-wrap justify-between">
                     <div className="flex flex-wrap ">
                     <div> <Invoice /></div>
-                    <div className="pl-4">Invoice</div>
+                        <div className="pl-4">Invoice</div>
                     </div>
                     <div className="self-center pr-4">
                         <ArrowDown />
                     </div>
                 </div>
+                <div className="flex flex-col gap-[4px] w-full">
+                    <div className="flex items-center justify-around">
+                        <div className= "flex items-center w-[150px] justify-between">
+                        <Point />
+                        <div>Purchase Order</div>
+                        </div>
+                        <div>26</div>
+                    </div>
+                    <div className="flex items-center justify-around">
+                        <div className= "flex items-center w-[150px] justify-between">
+                            <SecondPoint />
+                            <div>Purchase Order</div>
+                        </div>
+                        <div>93</div>
+                    </div>
+                    <div className="flex items-center justify-around">
+                        <div className= "flex items-center w-[150px] justify-between">
+                        <SecondPoint />
+                    <div>Purchase Order</div>
+                        </div>
+                        <div>125</div>
+                    </div>
+                        </div>
                 <div className="flex flex-wrap justify-between">
                     <div className="flex flex-wrap">
                     <div className=""> <Resource /></div>

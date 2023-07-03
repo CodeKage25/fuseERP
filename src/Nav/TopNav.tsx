@@ -5,7 +5,7 @@ import {ReactComponent as Notification} from '../assets/icons/Notification.svg'
 function TopNav() {
     return (
         <div className="flex flex-wrap justify-between bg-white h-full col-start-3 col-end-9 pr-[40px] pl-[40px] items-center border-b border-gray">
-            <div className="not-italic text-gray-700 font-semibold leading-8 text-2xl font-mullish items-center">
+            <div className="not-italic color-gray-700 text-gray-700 font-semibold leading-8 text-2xl font-mullish items-center">
                 Invoice
             </div>
             <div>
