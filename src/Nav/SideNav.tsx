@@ -34,7 +34,7 @@ function SideNav() {
                         <ArrowDown />
                     </div>
                 </div>
-                <div className="flex flex-col gap-[4px] w-full">
+                {/* <div className="flex flex-col gap-[4px] w-full">
                     <div className="flex items-center justify-around">
                         <div className= "flex items-center w-[150px] justify-between">
                         <Point />
@@ -56,7 +56,7 @@ function SideNav() {
                         </div>
                         <div>125</div>
                     </div>
-                        </div>
+                        </div> */}
                 <div className="flex flex-wrap justify-between">
                     <div className="flex flex-wrap">
                     <div className=""> <Resource /></div>

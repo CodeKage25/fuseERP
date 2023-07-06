@@ -1,6 +1,13 @@
 import React, {useMemo} from 'react';
-import {Data} from '../../helpers/data'
+import { Data } from '../../helpers/data';
+import { useTable,
+  useGlobalFilter, 
+  useAsyncDebounce,  
+  usePagination, 
+  useRowSelect} from "react-table";
+  import { useRowSelectColumn } from '@lineup-lite/hooks';
 function Table() {
+  const data = useMemo(() => Data, []);
     const column = useMemo(() => [
         {
             Header: "#Purchase Order",
@@ -32,7 +39,6 @@ function Table() {
           },
     
     ], [])
-    const data = useMemo(() => Data(), []);
     return (
         <div>
 
