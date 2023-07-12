@@ -9,6 +9,7 @@ import Root from './Root';
 import ErrorPage from "./error-page";
 import './index.css'
 import Purchase from './Purchase/Purchase';
+import { ContextProvider } from './contexts/ContextProvider';
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
         element: <App />
       },
       {
-        path: 'purchase/',
+        path: '/purchase',
         element: <Purchase />
       }
     ]
@@ -30,7 +31,9 @@ const router = createBrowserRouter([
 
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
+  <ContextProvider>
+    <React.StrictMode>
     <RouterProvider router={router} />
   </React.StrictMode>,
+  </ContextProvider>
 )

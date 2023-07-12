@@ -7,7 +7,7 @@ const Root = () => {
             <TopNav />
             <SideNav />
             <div className="col-span-6 row-start-2 row-end-9">
-            {/* <Outlet/> */}
+            <Outlet/>
             </div>
         </div>
     )

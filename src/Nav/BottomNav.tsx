@@ -1,7 +1,7 @@
 import {ReactComponent as Recurring} from '../assets/icons/Recurring.svg'
 function BottomNav() {
     return (
-        <div className="bg-gray-950 h-full row-start-8 col-start-3 col-end-9 flex items-center justify-between pl-[40px] pr-[40px] pt-[24px]">
+        <div className="bg-gray-950 h-full row-start-8 col-start-1 col-end-9 flex items-center justify-between pl-[40px] pr-[40px] pt-[24px]">
             <div className="flex item-center gap-[3px]">
                 <Recurring />
                 <div className="text-primary-600">Make recurring</div>

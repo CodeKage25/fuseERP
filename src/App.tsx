@@ -9,8 +9,6 @@ function App() {
 
   return (
     <div className="grid grid-cols-8 grid-rows-8 h-screen">
-      <SideNav />
-      <TopNav />
       <RightNav />
       <BottomNav />
       <MainBody />
