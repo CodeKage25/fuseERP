@@ -1,7 +1,5 @@
 import './App.css'
-import SideNav from './Nav/SideNav'
 import RightNav from './Nav/RightNav';
-import TopNav from './Nav/TopNav';
 import BottomNav from './Nav/BottomNav';
 import MainBody from './Main/MainBody';
 

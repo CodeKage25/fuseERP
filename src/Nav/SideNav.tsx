@@ -8,10 +8,10 @@ import {ReactComponent as Settings} from '../assets/icons/Settings.svg'
 import {ReactComponent as Accounting} from '../assets/icons/Accounting.svg'
 import {ReactComponent as Inventory} from '../assets/icons/Inventory.svg'
 import {ReactComponent as Point} from '../assets/icons/Point.svg'
-import {ReactComponent as SecondPoint} from '../assets/icons/SecondPoint.svg'
-import React, {useState} from 'react'
+// import {ReactComponent as SecondPoint} from '../assets/icons/SecondPoint.svg'
+import {useState} from 'react'
 function SideNav() {
-    const [isOpen, setIsOpen] = useState(false);
+    // const [isOpen, setIsOpen] = useState(false);
     return (
         <div className="flex bg-white flex-col h-full row-span-full col-span-2 flex-wrap justify-around pl-8 border-r border-gray">
             <div className="text-left">

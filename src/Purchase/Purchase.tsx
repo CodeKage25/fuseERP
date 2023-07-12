@@ -2,7 +2,7 @@ import Table from './components/Table'
 function Purchase() {
     return (
         <div>
-            <Table columns={[]} data={[]} placeholder={''} />
+            <Table placeholder={''}/>
         </div>
     )
 };
