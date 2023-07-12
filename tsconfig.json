@@ -24,6 +24,15 @@
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }],
+  "exclude": ["node_modules"],
+  "plugins": [
+    { "name": "@babel/plugin-transform-runtime" }
+  ],
+  "babelOptions": {
+    "presets": [
+      ["@babel/preset-env", { "targets": { "esmodules": true } }]
+    ]
+  },
   "files": [
     "custom.d.ts"
   ]

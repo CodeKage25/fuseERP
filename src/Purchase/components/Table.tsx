@@ -1,6 +1,8 @@
 import React, { useMemo, useEffect, useState } from 'react';
 import { Data } from '../../helpers/data';
 import { dataType } from '../../helpers/types';
+import 'regenerator-runtime/runtime';
+
 import {
   useTable,
   useGlobalFilter,
@@ -12,12 +14,13 @@ import {
   Row,
 } from 'react-table';
 import { useRowSelectColumn } from '@lineup-lite/hooks';
-import { DOTS, useCustomPagination } from './useCustomPagination';
-import { Button, PageButton } from '../../contexts/Button';
+import { useCustomPagination } from './useCustomPagination';
+// import { Button, PageButton } from '../../contexts/Button';
 import { classNames } from '../../contexts/utils';
 import { GrFormSearch } from 'react-icons/gr';
 
 interface GlobalFilterProps {
+  preGlobalFilteredRows: Row<dataType>[];
   globalFilter: string | undefined;
   setGlobalFilter: (filter: string | undefined) => void;
   placeholder: string;
@@ -32,10 +35,12 @@ interface TableProps {
 }
 
 export function GlobalFilter({
+  // preGlobalFilteredRows,
   globalFilter,
   setGlobalFilter,
   placeholder,
 }: GlobalFilterProps) {
+  // const count = preGlobalFilteredRows.length;
   const [value, setValue] = useState(globalFilter);
 
   const onChange = useAsyncDebounce(
@@ -46,26 +51,23 @@ export function GlobalFilter({
   );
 
   return (
-    <span className="flex justify-between pt-10 pb-10">
-      <GrFormSearch
-        fontSize={38}
-        color="gray"
-        className="absolute text-center text-gray-500 mt-3 ml-3 min-w-40"
-      />
-      <input
-        value={value || ''}
-        onChange={(e) => {
-          setValue(e.target.value);
-          onChange(e.target.value);
-        }}
-        className="w-8/12 rounded-xl border p-4 text-gray-500 cursor-pointer"
-        type="search"
-        placeholder={placeholder}
-      />
-      <button className="bg-white rounded-xl p-4 border-1 cursor-pointer">
-        Export
-      </button>
-    </span>
+    <span className='flex justify-between  pt-10 pb-10 '>
+       <GrFormSearch fontSize={38} color='gray' className='absolute text-center text-gray-500 mt-3 ml-3 min-w-40'/>
+        <input
+          value={value || ""}
+          onChange={e => {
+            setValue(e.target.value);
+            onChange(e.target.value);
+          }}
+          className='w-8/12 rounded-xl border p-4 text-gray-500 cursor-pointer' 
+          type="search"  
+          placeholder={placeholder}
+        />
+         <button 
+        className='bg-white rounded-xl p-4 border-1 cursor-pointer'>
+            Export
+        </button>
+      </span>
   );
 }
 
@@ -156,10 +158,9 @@ const Table: React.FC<TableProps> = ({ placeholder }) => {
     pageCount: number;
     setPageSize: (pageSize: number) => void;
     state: any;
-    preGlobalFilteredRows: any[];
+    preGlobalFilteredRows: Row<dataType>[];
     setGlobalFilter: (filterValue?: string | undefined) => void;
   };
-
 
   const { pageIndex } = state;
 
@@ -175,56 +176,60 @@ const Table: React.FC<TableProps> = ({ placeholder }) => {
 
   return (
     <div>
-      <div>
-        <table {...getTableProps()}>
-          <thead>
-            {headerGroups.map((headerGroup) => (
-              <tr {...headerGroup.getHeaderGroupProps()}>
-                {headerGroup.headers.map((column) => (
-                  <th {...column.getHeaderProps()}>
-                    {column.render('Header')}
-                  </th>
+      <GlobalFilter
+        preGlobalFilteredRows={preGlobalFilteredRows}
+        globalFilter={state.globalFilter}
+        setGlobalFilter={setGlobalFilter}
+        placeholder={placeholder}
+      />
+      <table {...getTableProps()} className="mt-4">
+        <thead>
+          {headerGroups.map((headerGroup) => (
+            <tr {...headerGroup.getHeaderGroupProps()}>
+              {headerGroup.headers.map((column) => (
+                <th {...column.getHeaderProps()}>
+                  {column.render('Header')}
+                </th>
+              ))}
+            </tr>
+          ))}
+        </thead>
+        <tbody {...getTableBodyProps()}>
+          {rows.map((row: Row<dataType>) => {
+            prepareRow(row);
+            return (
+              <tr {...row.getRowProps()}>
+                {row.cells.map((cell) => (
+                  <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
                 ))}
               </tr>
-            ))}
-          </thead>
-          <tbody {...getTableBodyProps()}>
-            {rows.map((row: Row<dataType>) => {
-              prepareRow(row);
-              return (
-                <tr {...row.getRowProps()}>
-                  {row.cells.map((cell) => (
-                    <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-                  ))}
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+            );
+          })}
+        </tbody>
+      </table>
 
-        <div>
-          <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
-            First
+      <div>
+        <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+          First
+        </button>
+        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
+          Previous
+        </button>
+        {paginationRange?.map((pageNumber) => (
+          <button
+            key={pageNumber}
+            onClick={() => gotoPage(Number(pageNumber))}
+            disabled={pageIndex === pageNumber}
+          >
+            {pageNumber}
           </button>
-          <button onClick={() => previousPage()} disabled={!canPreviousPage}>
-            Previous
-          </button>
-          {paginationRange?.map((pageNumber) => (
-            <button
-              key={pageNumber}
-              onClick={() => gotoPage(Number(pageNumber))}
-              disabled={pageIndex === pageNumber}
-            >
-              {pageNumber}
-            </button>
-          ))}
-          <button onClick={() => nextPage()} disabled={!canNextPage}>
-            Next
-          </button>
-          <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
-            Last
-          </button>
-        </div>
+        ))}
+        <button onClick={() => nextPage()} disabled={!canNextPage}>
+          Next
+        </button>
+        <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
+          Last
+        </button>
       </div>
     </div>
   );
