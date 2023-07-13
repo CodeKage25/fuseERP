@@ -38,6 +38,7 @@ export default {
         'gray-800': '#1E293B',
         'gray-900': '#0F172A',
         'primary-50': '#EFF6FF',
+        'primary-200': '#BFDBFE',
         'primary-600': '#2563EB',
         'success-600': '#059669'
       },
