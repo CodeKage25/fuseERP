@@ -3,6 +3,8 @@ import { Data } from "../../helpers/data";
 import { dataType } from "../../helpers/types";
 import { ReactComponent as Cell } from "../../assets/icons/Cell.svg";
 import { ReactComponent as Export } from "../../assets/icons/Export.svg";
+import { ReactComponent as ArrowRight } from "../../assets/icons/ArrowRight.svg";
+import { ReactComponent as ArrowLeft } from "../../assets/icons/ArrowLeft.svg";
 import "regenerator-runtime/runtime";
 
 import {
@@ -266,28 +268,44 @@ const Table: React.FC<TableProps> = ({ placeholder }) => {
         </table>
       </div>
 
-      <div>
-        <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
-          First
-        </button>
-        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
-          Previous
-        </button>
+      <div className="flex w-[100%] justify-between items-center">
+        <div className="flex items-center gap-[8px]">
         {paginationRange?.map((pageNumber) => (
           <button
             key={pageNumber}
             onClick={() => gotoPage(Number(pageNumber))}
             disabled={pageIndex === pageNumber}
           >
-            {pageNumber}
+            {`page ${pageNumber} of ${pageCount} `}
           </button>
         ))}
-        <button onClick={() => nextPage()} disabled={!canNextPage}>
-          Next
+        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
+          <ArrowLeft />
         </button>
-        <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
+        <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+          1
+        </button>
+        <button onClick={() => gotoPage(1)} disabled={!canPreviousPage}>
+          2
+        </button>
+        <button onClick={() => gotoPage(2)} disabled={!canPreviousPage}>
+          3
+        </button>
+        {/* <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
           Last
+        </button> */}
+        <button onClick={() => nextPage()} disabled={!canNextPage}>
+        <ArrowRight />
         </button>
+        </div>
+        <div className="flex items-center gap-[8px]">
+          <div>Show:</div>
+          <div>
+            <select className=" flex h-[36px] rounded border border-solid border-gray-200 items-center ml-2 p-2 w-[150px] bg-white font-mullish text-center text-sm font-medium leading-5 tracking-widest not-italic text-gray-600 ">
+                <option value="">10 rows</option>
+            </select>
+          </div>
+        </div>
       </div>
     </div>
   );
