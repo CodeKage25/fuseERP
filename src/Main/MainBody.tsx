@@ -154,11 +154,11 @@ function MainBody() {
                 <div className="flex items-start justify-center gap-[24px]">
                     <div className="flex items-center gap-[8px]">
                         <input type="checkbox" id="vat" name="vat" value="vat" />
-                        <label for="vat" className="text-gray-600 font-mullish text-sm non-italic font-semibold leading-5 tracking-widest font-normal"> Value Added Tax(VAT)</label>
+                        <label for="vat" className="text-gray-600 font-mullish text-sm non-italic leading-5 tracking-widest font-normal"> Value Added Tax(VAT)</label>
                     </div>
                     <div className="flex items-center gap-[8px]">
                         <input type="checkbox" id="wth" name="wth" value="wth" />
-                        <label for="wth" className="text-gray-600 font-mullish text-sm non-italic font-semibold leading-5 tracking-widest font-normal"> Withholding Tax (WTH)</label>
+                        <label for="wth" className="text-gray-600 font-mullish text-sm non-italic leading-5 tracking-widest font-normal"> Withholding Tax (WTH)</label>
                     </div>
                 </div>
               </div>
@@ -210,7 +210,7 @@ function MainBody() {
         <div className="text-gray-600 font-mullish text-sm non-italic font-normal leading-5 tracking-widest uppercase">Additional Items</div>
         <div className="w-[100%]">
         <input
-          className="inline-block w-[100%] h-[48px] outline-none border-4 border-solid border-gray-200 shadow-none w-[100%] p-[2px] z-[-1] text-mullish text-sm text-gray-500 leading-5 non-italic tracking-widest"
+          className="inline-block w-[100%] h-[48px] outline-none border-4 border-solid border-gray-200 shadow-none p-[2px] z-[-1] text-mullish text-sm text-gray-500 leading-5 non-italic tracking-widest"
           placeholder="Invoice Note"
         />
         </div>
