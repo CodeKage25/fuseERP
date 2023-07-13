@@ -12,6 +12,7 @@
   "dependencies": {
     "@lineup-lite/hooks": "^1.7.0",
     "antd": "^5.7.0",
+    "axios": "^1.4.0",
     "dayjs": "^1.11.9",
     "moment": "^2.29.4",
     "react": "^18.2.0",

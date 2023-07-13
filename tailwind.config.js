@@ -40,6 +40,8 @@ export default {
         'primary-50': '#EFF6FF',
         'primary-200': '#BFDBFE',
         'primary-600': '#2563EB',
+        'neutral-400': '#919094',
+        'neutral-500': '#77777A',
         'success-600': '#059669'
       },
       fontFamily: {
