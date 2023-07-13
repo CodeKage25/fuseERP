@@ -6,4 +6,5 @@ export interface dataType {
     purchase_order_amount: string;
     oustanding_balance: string;
     status: string;
+    dot: string
 }

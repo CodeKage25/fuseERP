@@ -8,7 +8,8 @@ export const Data: dataType[] = [
     expected_delivery_date: "Dec. 19, 2022",
     purchase_order_amount: "#170,000.00",
     oustanding_balance: "#170,000.00",
-    status: "Draft"
+    status: "Draft",
+    dot: '...'
 },
     {
     purchase_order: "PO-2000025",
@@ -17,7 +18,8 @@ export const Data: dataType[] = [
     expected_delivery_date: "Dec. 19, 2022",
     purchase_order_amount: "#170,000.00",
     oustanding_balance: "#170,000.00",
-    status: "Draft"
+    status: "Draft",
+    dot: '...'
 },
     {
     purchase_order: "PO-2000024",
@@ -26,7 +28,8 @@ export const Data: dataType[] = [
     expected_delivery_date: "Dec. 19, 2022",
     purchase_order_amount: "#170,000.00",
     oustanding_balance: "#170,000.00",
-    status: "Draft"
+    status: "Draft",
+    dot: '...'
 },
     {
     purchase_order: "PO-2000023",
@@ -35,7 +38,8 @@ export const Data: dataType[] = [
     expected_delivery_date: "Dec. 19, 2022",
     purchase_order_amount: "#170,000.00",
     oustanding_balance: "#170,000.00",
-    status: "Draft"
+    status: "Draft",
+    dot: '...'
 },
     {
     purchase_order: "PO-2000022",
@@ -44,7 +48,8 @@ export const Data: dataType[] = [
     expected_delivery_date: "Dec. 19, 2022",
     purchase_order_amount: "#170,000.00",
     oustanding_balance: "#170,000.00",
-    status: "Draft"
+    status: "Draft",
+    dot: '...'
 },
     {
     purchase_order: "PO-2000021",
@@ -53,7 +58,8 @@ export const Data: dataType[] = [
     expected_delivery_date: "Dec. 19, 2022",
     purchase_order_amount: "#170,000.00",
     oustanding_balance: "#170,000.00",
-    status: "Draft"
+    status: "Draft",
+    dot: '...'
 },
     {
     purchase_order: "PO-2000020",
@@ -62,7 +68,8 @@ export const Data: dataType[] = [
     expected_delivery_date: "Dec. 19, 2022",
     purchase_order_amount: "#170,000.00",
     oustanding_balance: "#170,000.00",
-    status: "Draft"
+    status: "Draft",
+    dot: '...'
 },
     {
     purchase_order: "PO-2000019",
@@ -71,7 +78,8 @@ export const Data: dataType[] = [
     expected_delivery_date: "Dec. 19, 2022",
     purchase_order_amount: "#170,000.00",
     oustanding_balance: "#170,000.00",
-    status: "Draft"
+    status: "Draft",
+    dot: '...'
 },
     {
     purchase_order: "PO-2000018",
@@ -80,7 +88,8 @@ export const Data: dataType[] = [
     expected_delivery_date: "Dec. 19, 2022",
     purchase_order_amount: "#170,000.00",
     oustanding_balance: "#170,000.00",
-    status: "Draft"
+    status: "Draft",
+    dot: '...'
 },
     {
     purchase_order: "PO-2000017",
@@ -89,7 +98,8 @@ export const Data: dataType[] = [
     expected_delivery_date: "Dec. 19, 2022",
     purchase_order_amount: "#170,000.00",
     oustanding_balance: "#170,000.00",
-    status: "Draft"
+    status: "Draft",
+    dot: '...'
 },
 
 ]

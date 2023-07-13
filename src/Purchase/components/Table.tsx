@@ -1,6 +1,7 @@
 import React, { useMemo, useEffect, useState } from 'react';
 import { Data } from '../../helpers/data';
 import { dataType } from '../../helpers/types';
+import {ReactComponent as Cell} from '../../assets/icons/Cell.svg'
 import 'regenerator-runtime/runtime';
 
 import {
@@ -34,6 +35,7 @@ interface TableProps {
   placeholder: string;
 }
 
+
 export function GlobalFilter({
   // preGlobalFilteredRows,
   globalFilter,
@@ -42,6 +44,8 @@ export function GlobalFilter({
 }: GlobalFilterProps) {
   // const count = preGlobalFilteredRows.length;
   const [value, setValue] = useState(globalFilter);
+  const [statusFilter, setStatusFilter] = useState<string | null>(null);
+
 
   const onChange = useAsyncDebounce(
     (value: string | undefined) => {
@@ -51,23 +55,45 @@ export function GlobalFilter({
   );
 
   return (
-    <span className='flex justify-between  pt-10 pb-10 '>
-       <GrFormSearch fontSize={38} color='gray' className='absolute text-center text-gray-500 mt-3 ml-3 min-w-40'/>
+    <div className="flex justify-between  pt-10 pb-10">
+    <span className='flex w-[491px]'>
+       <GrFormSearch fontSize={24} color='gray' className='absolute flex justify-center items-center text-center text-gray-500 mt-2 ml-2 '/>
         <input
           value={value || ""}
           onChange={e => {
             setValue(e.target.value);
             onChange(e.target.value);
           }}
-          className='w-8/12 rounded-xl border p-4 text-gray-500 cursor-pointer' 
+          className=' rounded border-1.2 border-solid h-[36px] w-[400px] font-mullish text-center text-sm font-medium leading-5 tracking-widest not-italic border-gray-300 text-gray-500 cursor-pointer ' 
           type="search"  
           placeholder={placeholder}
         />
-         <button 
+
+        <div>
+        <select
+        value={statusFilter || ''}
+        onChange={(e) => {
+          const selectedValue = e.target.value;
+          setStatusFilter(selectedValue || null);
+        }}
+        className=" flex rounded border border-solid border-gray-200 items-center ml-2 p-2 w-[90px] bg-white font-mullish text-center text-sm font-medium leading-5 tracking-widest not-italic text-gray-600 "
+      >
+        <option value="">Status</option>
+        <option value="issued">Issued</option>
+        <option value="completed">Completed</option>
+        <option value="draft">Draft</option>
+        <option value="pending">Pending</option>
+        <option value="closed">Closed</option>
+      </select>
+        </div>
+      </span>
+      <div>
+      <button 
         className='bg-white rounded-xl p-4 border-1 cursor-pointer'>
             Export
         </button>
-      </span>
+      </div>
+      </div>
   );
 }
 
@@ -120,6 +146,10 @@ const Table: React.FC<TableProps> = ({ placeholder }) => {
         Header: 'Status',
         accessor: 'status',
       },
+      {
+        Header: <Cell />,
+        accessor: 'dot',
+      },
     ],
     []
   );
@@ -144,6 +174,7 @@ const Table: React.FC<TableProps> = ({ placeholder }) => {
     {
       columns,
       data,
+      // initialState: { filters: [{ id: 'status', value: null }] }, // Apply initial filter state
     },
     useGlobalFilter,
     usePagination,
@@ -174,16 +205,22 @@ const Table: React.FC<TableProps> = ({ placeholder }) => {
     setPageSize(5);
   }, [setPageSize]);
 
+  // const filteredRows = statusFilter
+  //   ? rows.filter((row: Row<dataType>) => row.values.status === statusFilter)
+  //   : rows;
+
   return (
-    <div>
+    <div className="bg-white w-[100%]">
+      
       <GlobalFilter
         preGlobalFilteredRows={preGlobalFilteredRows}
         globalFilter={state.globalFilter}
         setGlobalFilter={setGlobalFilter}
         placeholder={placeholder}
       />
-      <table {...getTableProps()} className="mt-4">
-        <thead>
+      <div className="border-8 border-gray-100 bg-white w-[100%]">
+      <table {...getTableProps()} className="">
+        <thead className="border-t border-b border-solid bg-gray-50 border-t-gray-50 border-b-gray-50">
           {headerGroups.map((headerGroup) => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
@@ -194,19 +231,20 @@ const Table: React.FC<TableProps> = ({ placeholder }) => {
             </tr>
           ))}
         </thead>
-        <tbody {...getTableBodyProps()}>
+        <tbody {...getTableBodyProps()} className="">
           {rows.map((row: Row<dataType>) => {
             prepareRow(row);
             return (
-              <tr {...row.getRowProps()}>
+              <tr {...row.getRowProps()} className="w-[100%] border-b border-b-gray-100 h-[50px] gap-2px items-center">
                 {row.cells.map((cell) => (
-                  <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                  <td {...cell.getCellProps()} className="p-2">{cell.render('Cell')}</td>
                 ))}
               </tr>
             );
           })}
         </tbody>
       </table>
+      </div>
 
       <div>
         <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
@@ -231,6 +269,7 @@ const Table: React.FC<TableProps> = ({ placeholder }) => {
           Last
         </button>
       </div>
+      
     </div>
   );
 };
