@@ -295,7 +295,7 @@ const Table: React.FC<TableProps> = ({ placeholder }) => {
           setActiveButtonIndex(1);}} disabled={!canPreviousPage}>
           2
         </button>
-        <button className={`${activeButtonIndex === 1 ? "bg-primary-600" : "bg-gray-50"} flex w-[24px] items-center h-[24px] p-[8px] justify-center gap-[8px]`} onClick={() => {
+        <button className={`${activeButtonIndex === 2 ? "bg-primary-600" : "bg-gray-50"} flex w-[24px] items-center h-[24px] p-[8px] justify-center gap-[8px]`} onClick={() => {
           gotoPage(2);
           setActiveButtonIndex(2);}} disabled={!canPreviousPage}>
           3
