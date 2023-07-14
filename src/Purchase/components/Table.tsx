@@ -48,6 +48,7 @@ export function GlobalFilter({
   const [value, setValue] = useState(globalFilter);
   const [statusFilter, setStatusFilter] = useState<string | null>(null);
 
+
   const onChange = useAsyncDebounce((value: string | undefined) => {
     setGlobalFilter(value || undefined);
   }, 200);
@@ -217,6 +218,7 @@ const Table: React.FC<TableProps> = ({ placeholder }) => {
     totalPageCount: pageCount || 0,
     currentPage: pageIndex,
   });
+  const [activeButtonIndex, setActiveButtonIndex] = useState(0);
   console.log(paginationRange);
 
   useEffect(() => {
@@ -279,22 +281,29 @@ const Table: React.FC<TableProps> = ({ placeholder }) => {
             {`page ${pageNumber} of ${pageCount} `}
           </button>
         ))}
-        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
+        <button className="flex justify-center p-[8px] rounded bg-gray-200 w-[36px] h-[36px]" onClick={() => previousPage()} disabled={!canPreviousPage}>
           <ArrowLeft />
         </button>
-        <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+          <button className={`${activeButtonIndex === 0 ? "bg-primary-600" : "bg-gray-50"} flex w-[24px] items-center h-[24px] p-[8px] justify-center gap-[8px]`} onClick={() =>
+            {gotoPage(0);
+            setActiveButtonIndex(0);
+          }} disabled={!canPreviousPage}>
           1
         </button>
-        <button onClick={() => gotoPage(1)} disabled={!canPreviousPage}>
+        <button className={`${activeButtonIndex === 1 ? "bg-primary-600" : "bg-gray-50"} flex w-[24px] items-center h-[24px] p-[8px] justify-center gap-[8px]`} onClick={() => {
+          gotoPage(1);
+          setActiveButtonIndex(1);}} disabled={!canPreviousPage}>
           2
         </button>
-        <button onClick={() => gotoPage(2)} disabled={!canPreviousPage}>
+        <button className={`${activeButtonIndex === 1 ? "bg-primary-600" : "bg-gray-50"} flex w-[24px] items-center h-[24px] p-[8px] justify-center gap-[8px]`} onClick={() => {
+          gotoPage(2);
+          setActiveButtonIndex(2);}} disabled={!canPreviousPage}>
           3
         </button>
         {/* <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
           Last
         </button> */}
-        <button onClick={() => nextPage()} disabled={!canNextPage}>
+        <button className="flex justify-center p-[8px] rounded bg-gray-200 w-[36px] h-[36px]" onClick={() => nextPage()} disabled={!canNextPage}>
         <ArrowRight />
         </button>
         </div>
