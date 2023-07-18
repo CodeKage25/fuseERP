@@ -102,7 +102,7 @@ export function GlobalFilter({
           </div>
           <div>
           <span className=" relative w-[100%]">
-            <Export className="absolute top-[20px] left-[8px] z-10" />
+            <Export className="absolute top-[10px] left-[8px] z-10" />
               <select className=" flex rounded border pl-4 border-solid border-gray-200 items-center ml-2 p-2 w-[95px] bg-white font-mullish text-center text-sm font-medium leading-5 tracking-widest not-italic text-gray-600 ">
                 <option className="pl-6" value="">Export</option>
               </select>
